@@ -1,0 +1,1093 @@
+\documentclass[11pt]{exam}
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathrsfs}
+\usepackage[francais]{babel}
+\usepackage{icomma}
+\usepackage{amsfonts}						% Lettres en gras du produit matriciel
+\usepackage{amsmath}							% permet de retour a la ligne les equations trop longues
+\usepackage{array}
+\usepackage{tikz,tkz-tab}
+\usepackage[center]{caption}
+\usepackage[usenames]{color}
+\usepackage{diagbox}
+
+\usepackage{epstopdf}						% Pour la conversion de ces images de eps en pdf
+\usepackage{fancyhdr}
+\usepackage{lscape}	
+\usepackage{geometry}
+\pagestyle{plain}				 	% En tete avec noms des chapitres
+\usepackage{float}								% Pour les options graphiques
+\usepackage{graphicx}						% Pour l'insetion d'images	
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}  					% Pour les accents
+\usepackage{lastpage}
+\usepackage{longtable}
+\usepackage[normalem]{ulem}								% souligner avec le fonction uline
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\usepackage{graphics}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage{centernot}
+\usepackage{multicol}
+\usepackage{xlop}
+\usepackage{eurosym}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{ProfCollege}
+%\usepackage{mathtools}
+\usepackage{ stmaryrd }
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{pstricks,pst-node,pst-text}
+\usepackage{stringstrings}
+\usepackage{readarray}
+\usepackage{colortbl}
+\sectionfont{\color{red}}
+\subsectionfont{\color{blue}}
+\definecolor{C1}{rgb}{1,0.24,0.18}
+\definecolor{C2}{rgb}{0.98,0.51,0.19}
+\definecolor{C3}{rgb}{0.98,0.72,0.19}
+\definecolor{C4}{rgb}{0.97,0.79,0.2}
+\definecolor{C5}{rgb}{1,0.97,0.89}
+\definecolor{C6}{rgb}{0.86,0.98,0.89}
+
+
+
+
+\definecolor{fond1}{rgb}{1,1,0.8}%jaune clair--Méthodes
+\definecolor{fond2}{rgb}{0.8,0.9,1}%bleu clair--Propriétés
+\definecolor{fond3}{rgb}{0.9,0.9,0.9}%gris clair--Définitions
+\definecolor{fond4}{rgb}{0.55,1,0.6}%vert clair
+\definecolor{fond5}{rgb}{1,0.6,0.55}%rouge clair--Théorèmes
+\definecolor{fond6}{rgb}{1,0.8,0.0}%orange
+
+
+
+
+
+\geometry{left=0.5cm, top=1cm}
+
+\savegeometry{1}
+
+
+
+
+
+
+
+\definecolor{bleuT}{rgb}{0.87,0.87,1}			
+\definecolor{fondG}{rgb}{0.88,0.88,0.88}					% Les bleus des lignes de titre de tableaux
+\definecolor{fondJ}{rgb}{1,1,0.82}					% Les bleus des lignes de titre de tableaux
+
+\renewcommand\thesection{\Roman{section}}
+
+
+%-----------------------------------------------------------------------------------------------%-----------------------------------------------------------------------------------------------%-------------------------------------          MODIFICATION DES MARGES                                                 --------------------------------------
+%-----------------------------------------------------------------------------------------------%-----------------------------------------------------------------------------------------------\voffset -0.2 in		   						
+%-----------------------------------------------------------------------------------------------%-----------------------------------------------------------------------------------------------%-------------------------------------          STRUCTURE PDF                                                 --------------------------------------
+%-----------------------------------------------------------------------------------------------%-----------------------------------------------------------------------------------------------
+%\hypersetup{ backref=true, 						% permet d'ajouter des liens dans
+%  pagebackref=true,        						% ...les bibliographies 
+%  hyperindex=true,        							% ajoute des liens dans les index. 
+%  colorlinks=true,         						% colorise les liens 
+%  breaklinks=true,       							% permet le retour ? la ligne dans les liens trop longs 
+%  urlcolor= blue,          						% couleur des hyperliens 
+%  linkcolor= blue,         						% couleur des liens internes 
+%  bookmarks=true,          						% cr?? des signets pour Acrobat 
+%  bookmarksopen=true,      						% si les signets Acrobat sont cr??s,%les afficher compl?tement.
+%  pdftitle={Titre}, 										% informations apparaissant dans
+%  pdfauthor={PIQUON Pierre}, 					% dans les informations du document
+%  pdfsubject={Sujet} 	 								% sous Acrobat.
+%} 
+% -----    modifs completes
+\setlength{\hoffset}{-20pt} 
+
+\setlength{\oddsidemargin}{20pt} 				% Marge gauche sur pages impaires
+\setlength{\evensidemargin}{20pt} 			% Marge gauche sur pages paires
+\setlength{\marginparwidth}{54pt} 			% Largeur de note dans la marge
+\setlength{\textwidth}{480pt} 					% Largeur de la zone de texte (17cm)
+\setlength{\voffset}{-60pt} 						% Bon pour DOS
+\setlength{\marginparsep}{7pt} 				% S?paration de la marge
+\setlength{\topmargin}{10pt} 						% Pas de marge en haut
+\setlength{\headheight}{0pt} 					% Haut de page
+\setlength{\headsep}{15pt} 						% Entre le haut de page et le texte
+\setlength{\footskip}{27pt} 						% Bas de page + s?paration
+\setlength{\textheight}{730pt} 				% Hauteur de la zone de texte (25cm)
+
+\definecolor{mybrown}{RGB}{204, 229, 255}
+
+%\mdfdefinestyle{mystyle}{%
+%linecolor=mybrown,outerlinewidth=1pt,%
+%frametitlerule=true,frametitlefont=\sffamily\bfseries\color{black},%
+%frametitlerulewidth=1pt,frametitlerulecolor=mybrown,%
+%frametitlebackgroundcolor=mybrown,
+%backgroundcolor=mybrown!05,
+%innertopmargin=\topskip,
+%roundcorner=5pt
+%}
+%\newmdenv[style=mystyle]{exa}
+%\newenvironment{example}[1][]
+  %{\begin{exa}[frametitle=#1]}
+  %{\end{exa}}
+
+%\gdef\Sepline{%
+  %\par\noindent\makebox[\linewidth][l]{%
+  %\hspace*{-\mdflength{innerleftmargin}}%
+   %\tikz\draw[thick,dashed,gray!60] (0,0) --%
+        %(\textwidth+\the\mdflength{innerleftmargin}+\the\mdflength{innerrightmargin},0);
+  %}\par\nobreak}
+
+\definecolor{mygreen}{RGB}{0,128,0}
+
+\mdfdefinestyle{mystyle}{%
+linecolor=mygreen,outerlinewidth=1pt,%
+frametitlerule=true,frametitlefont=\sffamily\bfseries\color{black},%
+frametitlerulewidth=1pt,frametitlerulecolor=mygreen,%
+frametitlebackgroundcolor=mygreen,
+backgroundcolor=mygreen!05,
+innertopmargin=\topskip,
+roundcorner=5pt}
+\newmdenv[style=mystyle]{exa}
+\newenvironment{example}[1][]
+  {\begin{exa}[frametitle=#1]}
+  {\end{exa}}
+\gdef\Sepline{%
+  \par\noindent\makebox[\linewidth][l]{%
+  \hspace*{-\mdflength{innerleftmargin}}%
+   \tikz\draw[thick,dashed,gray!60] (0,0) --%
+        (\textwidth+\the\mdflength{innerleftmargin}+\the\mdflength{innerrightmargin},0);
+  }\par\nobreak}
+
+
+
+\definecolor{myyellow}{RGB}{234,203,77}
+
+\mdfdefinestyle{prstyle}{%
+linecolor=myyellow,outerlinewidth=1pt,%
+frametitlerule=true,frametitlefont=\sffamily\bfseries\color{black},%
+frametitlerulewidth=1pt,frametitlerulecolor=myyellow,%
+frametitlebackgroundcolor=myyellow,
+backgroundcolor=myyellow!05,
+innertopmargin=\topskip,
+roundcorner=5pt}
+\newmdenv[style=prstyle]{pr}
+\newenvironment{proposition}[1][]
+  {\begin{pr}[frametitle=#1]}
+  {\end{pr}}
+\gdef\Sepline{%
+  \par\noindent\makebox[\linewidth][l]{%
+  \hspace*{-\mdflength{innerleftmargin}}%
+   \tikz\draw[thick,dashed,gray!60] (0,0) --%
+        (\textwidth+\the\mdflength{innerleftmargin}+\the\mdflength{innerrightmargin},0);
+  }\par\nobreak}
+
+
+\definecolor{myred}{RGB}{255,0,0}
+
+\mdfdefinestyle{prostyle}{%
+linecolor=myred,outerlinewidth=1pt,%
+frametitlerule=true,frametitlefont=\sffamily\bfseries\color{black},%
+frametitlerulewidth=1pt,frametitlerulecolor=myred,%
+frametitlebackgroundcolor=myred,
+backgroundcolor=myred!05,
+innertopmargin=\topskip,
+roundcorner=5pt}
+\newmdenv[style=prostyle]{pro}
+\newenvironment{propri}[1][]
+  {\begin{pro}[frametitle=#1]}
+  {\end{pro}}
+\gdef\Sepline{%
+  \par\noindent\makebox[\linewidth][l]{%
+  \hspace*{-\mdflength{innerleftmargin}}%
+   \tikz\draw[thick,dashed,gray!60] (0,0) --%
+        (\textwidth+\the\mdflength{innerleftmargin}+\the\mdflength{innerrightmargin},0);
+  }\par\nobreak}
+
+
+
+
+\definecolor{mygrey}{RGB}{211,211,211}
+
+\mdfdefinestyle{metstyle}{%
+linecolor=mygrey,outerlinewidth=1pt,%
+frametitlerule=true,frametitlefont=\sffamily\bfseries\color{black},%
+frametitlerulewidth=1pt,frametitlerulecolor=mygrey,%
+frametitlebackgroundcolor=mygrey,
+backgroundcolor=mygrey!05,
+innertopmargin=\topskip,
+roundcorner=5pt}
+\newmdenv[style=metstyle]{met}
+\newenvironment{methode}[1][]
+  {\begin{met}[frametitle=#1]}
+  {\end{met}}
+\gdef\Sepline{%
+  \par\noindent\makebox[\linewidth][l]{%
+  \hspace*{-\mdflength{innerleftmargin}}%
+   \tikz\draw[thick,dashed,gray!30] (0,0) --%
+        (\textwidth+\the\mdflength{innerleftmargin}+\the\mdflength{innerrightmargin},0);
+  }\par\nobreak}
+
+
+
+
+
+
+
+
+
+
+
+% \mdfdefinestyle{mystyle}{%
+% linecolor=mybrown,outerlinewidth=1pt,%
+% frametitlerule=true,frametitlefont=\sffamily\bfseries\color{black},%
+% frametitlerulewidth=1pt,frametitlerulecolor=mybrown,%
+% frametitlebackgroundcolor=mybrown,
+% backgroundcolor=mybrown!05,
+% innertopmargin=\topskip,
+% roundcorner=5pt
+% }
+% \mdtheorem[style=mystyle]{example}{}
+
+% \gdef\Sepline{%
+%   \par\noindent\makebox[\linewidth][l]{%
+%   \hspace*{-\mdflength{innerleftmargin}}%
+%    \tikz\draw[thick,dashed,gray!60] (0,0) --%
+%         (\textwidth+\the\mdflength{innerleftmargin}+\the\mdflength{innerrightmargin},0);
+%   }\par\nobreak}
+%-----------------------------------------------------------------------------------------------%-----------------------------------------------------------------------------------------------%-------------------------------------          DEBUT DOCUMENT                                                  --------------------------------------
+%-----------------------------------------------------------------------------------------------%-----------------------------------------------------------------------------------------------
+\author{Lycée Sonnenberg, M.BEYER, classe de Terminale ST2S}
+\title{Séquence 5 : suite numérique}
+\date{\vspace{-5ex}}
+\pagenumbering{gobble}
+
+
+\pagestyle{fancyplain}
+\fancyhf{}
+\setlength{\headheight}{5.2pt}
+\lhead{\fancyplain{}}
+\rhead{\fancyplain{}{}  }
+%\lfoot{\fancyplain{}{\textit{La doctrine chrétienne de Strasbourg, M.BEYER, Séquence 1 } } }
+
+\begin{document} 
+
+ \maketitle
+
+
+
+
+\\
+
+ \fbox{\parbox{\textwidth}{\textcolor{blue}{
+ ~\\
+
+\textbf{\uline{Les objectifs de la séquence}}: \\
+\begin{itemize}
+\item Prouver que trois nombres sont ou ne sont pas les termes consécutifs d'une suite arithmétique. \\
+\item Déterminer la raison d'une suite arithmétique ou géométrique modélisant une évolution. \\
+\item Exprimer en fonction de $n$ le terme général d'une suite arithmétique ou géométrique. \\
+\item Calculer la somme des $n$ premiers termes d'une suite arithmétique ou géométrique. \\
+\end{itemize}
+
+}}}
+
+\section{Les suites arithmétiques}
+\subsection{Définition par récurrence}
+
+\begin{example}[Définition 1 :]
+\noindent Une suite est dite \textbf{arithmétique} lorsqu'on passe d'un terme au suivant en ajoutant à chaque fois un même nombre $r$ appelé \textbf{raison} de la suite.\\
+
+\noindent Une suite arithmétique est définie par la donnée de son premier terme (généralement $u_0$ ou $u_1$) et la relation de récurrence :\\
+\[ \left\lbrace
+   \begin{array}{l}
+      u_0 = k \text{ avec k} \in \mathbb{R}\\
+      u_{n+1} = u_n + r\\
+   \end{array}
+\right. \]
+\end{example}
+
+\begin{methode}[Exemple 1 :]
+\noindent Une chaîne de supermarché avait 200 points de vente en 2010. Chaque année elle en a ouvert 6 de plus.\\
+
+\noindent On note $u_n$ le nombre de points de vente de la chaîne au bout de n année. Le premier terme de la suite $(u_n)$ est $u_0=200$.
+
+\noindent On passe d'un terme au suivant en ajoutant 6, c'est-à-dire : $u_{n+1}=u_n+6$.
+
+\noindent $(u_n)$ est donc une suite arithmétique de raison 6.
+\end{methode}
+
+\begin{proposition}[Méthode 1 : montrer qu'une suite est arithmétique]
+Pour démontrer qu'une suite est arithmétique, on calcule la différence entre deux termes consécutifs.\\
+Si cette différence est constante, quelles que soient les valeurs de n, c'est a dire que sa valeur ne dépend pas de $n$, on peut en conclure que la suite $(u_n)$ est arithmétique.
+\end{proposition}
+
+\begin{methode}[Exemple 2 :]
+Soit la suite $(w_n)$ définie par $w_{n}=3n+7$ pour tout entier naturel $n$.
+\begin{eqnarray*}
+w_{n+1}-w_n & = & 3\times (n+1) +7 - (3n+7) \quad = \quad 3n+3+7-3n-7 \quad = \quad 3
+\end{eqnarray*}
+
+\noindent Donc $(w_n)$ est une suite arithmétique de raison $r=3$
+\end{methode}
+
+\subsection{Définition explicite}
+\subsubsection{Activité}
+
+
+
+\begin{example}
+\noindent Soit la suite arithmétique ($u_n$) de premier terme $u_0$ = $-2$ définie pour tout entier naturel $n$ par $u_{n+1}$ = $u_n$ + 3. \\
+1. Compléter la figure ci-dessous : \\
+\begin{center}
+\includegraphics[scale=0.7]{fig5.jpg}
+\end{center}
+
+
+
+\noindent 2. Combien de fois doit-on ajouter la raison pour calculer $u_8$ à partir de $u_0$. \\
+3. Compléter $u_8$ = $u_0$ + .... $\times$ 3. \\
+4. Calculer  $u_{21}$ à partir de $u_0$. \\
+5. Combien de fois doit-on ajouter la raison pour calculer $u_8$ en fonction de $u_1$. \\
+6. Calculer $u_{21}$ en fonction de $u_1$. \\
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{propri}[Propriété 1 :]
+Soit$(u_n)$ une suite arithmétique de raison $r$ et de premier terme $u_0$.
+\begin{enumerate}
+\item[-]Pour tout entier naturel$n$, on a :\\
+
+$$u_n=u_0+n \times r$$ \\
+\item[-]Pour tout entiers naturels $n$ et $p$, on a : \\
+
+\vspace{-9mm}
+$$u_n=u_p+(n-p) \times r$$
+\end{enumerate}
+\end{propri}
+
+
+\begin{methode}[Exemples 3 :]
+Soit $(u_n)$ la suite arithmétique définie sur $\N$ telle que $u_5=7$ et $r$ $=$ $3$\\
+1. Calculer $u_9$. \\
+ 
+
+$u_9=u_5+(9-5) \times r$, donc $u_9$ = $7$ $+$ $4$ $\times$ $3$ $=$ $19$ \\
+\newline
+Soit $(v_n)$ la suite arithmétique définie sur $\N$ telle que $v_1=10$ et $r$ $=$ $-2$\\
+1. Exprimer $v_{n+1}$ en fonction de $v_n$. \\
+$v_{n+1}$ = $v_n$ $+$ $r$ $=$ $v_n$ $-$ $2$. \\
+\newline
+2. Pour tout entier $n$ $\neq$  $0$, exprimer $v_n$ en fonction de $n$.  \\
+$v_n$ $=$ $v_1$ $+$ $(n-1)r$ donc $v_n$ $=$ $10$ $-$ $2(n-1)$ \\
+\newline
+3. Donner la valeur de $v_9$. \\
+$v_9$ $=$ $v_1$ $+$ $(9-1)r$ $=$ $10$ $-$ $2$ $\times$ $8$ $=$ $10$ $-$ $16$ $=$ $-6$
+
+\end{methode}
+
+
+\subsection{Propriétés des suites arithmétiques}
+
+\subsubsection{Sens de variation}
+
+\begin{propri}[Propriété 2 :]
+Soit $(u_n)$ une suite arithmétique de raison $r$ alors :
+
+\begin{enumerate}
+\item[-] Si $r>0$ alors $(u_n)$ est \textbf{strictement croissante.}
+\item[-] Si $r=0$ alors $(u_n)$ est \textbf{constante.}
+\item[-] Si $r<0$ alors $(u_n)$ est \textbf{strictement décroissante.}
+\end{enumerate}
+\end{propri}
+
+\noindent \textbf{Démonstration :}
+On considère une suite arithmétique de raison $r$. On a donc pour tout $n \in \N$ :
+$$u_{n+1}=u_n+r \Longleftrightarrow u_{n+1}-u_n = r$$
+\noindent On observe trois cas possible :
+\begin{enumerate}
+\item[-] Si $r>0$ alors pour tout $n\in \N$, $u_{n+1}-u_n >0$ donc $(u_n)$ est strictement croissante.
+\item[-] Si $r=0$ alors pour tout $n\in \N$, $u_{n+1}-u_n =0$ donc $(u_n)$ est constante.
+\item[-] Si $r<0$ alors pour tout $n\in \N$, $u_{n+1}-u_n <0$ donc $(u_n)$ est strictement décroissante.
+\end{enumerate}
+
+
+\begin{methode}[Exemple 4 :]
+Soit la suite $(w_n)$ définie par $w_{n}=3n+7$ pour tout entier naturel $n$. 
+
+\noindent On a vu ci-dessus que $(w_n)$ est une suite arithmétique de raison $r=3$.
+
+\noindent Donc $(w_n)$ est une suite strictement croissante car $r>0$
+
+\medskip
+\noindent On peut retrouver ce résultat grâce à la définition du sens de variation :
+\begin{eqnarray*}
+w_{n+1}-w_n & = & 3\times (n+1) +7 - (3n+7)\\
+&=&3n+3+7-3n-7\\
+&=&3>0
+\end{eqnarray*}
+
+\noindent Donc $(w_n)$ est une suite arithmétique croissante.
+\end{methode}
+
+\subsection{Représentation graphique}
+
+\begin{propri}[Propriété 3 :]
+Soit $(u_n)$ une suite arithmétique de raison $r$, alors les points de sa représentation graphique dans un repère du plan sont alignés.
+\end{propri}
+
+\begin{methode}[Exemple 5 :]
+Soit la suite $(v_n)$ définie par $v_0=350$ et la relation de récurrence $v_{n+1}=v_n -50$, pour tout entier naturel $n$.
+On calcul les premiers termes de cette suite :
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$n$ & 0 & 1 & 2 & 3 & 4 & 5 \\
+\hline
+$v_n $ & 350 & 300 & 250 & 200 & 150 & 100 \\
+\hline
+\end{tabular}
+\end{center}
+
+Sur le graphique ci dessous, les points $B_n$ correspondent à la suite $(v_n)$.
+\begin{center}
+\definecolor{qqqqff}{rgb}{0.,0.,1.}
+\definecolor{cqcqcq}{rgb}{0.7529411764705882,0.7529411764705882,0.7529411764705882}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=2.727272727272727cm,y=0.0325cm,scale=0.8]
+\draw [color=cqcqcq,, xstep=1.3636363636363635cm,ystep=1.625cm] (0.,0.) grid (5.3,370.);
+\draw[->,color=black] (0.,0.) -- (5.5,0.);
+\foreach \x in {,0.5,1.,1.5,2.,2.5,3.,3.5,4.,4.5,5.}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0.,0.) -- (0.,400.);
+\foreach \y in {,50.,100.,150.,200.,250.,300.,350.}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(0.,0.) rectangle (5.5,400.);
+\draw[color=red] (1,300)--(2,300);
+\draw[->,color=red] (2,300)--(2,250) node [midway, left] {$r$};
+\begin{scriptsize}
+\draw [color=qqqqff] (0.,350.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (0.05760681590969436,366.90449525608864) node {$B_0$};
+\draw [color=qqqqff] (1.,300.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (1.0592764490264324,316.82101360025183) node {$B_1$};
+\draw [color=qqqqff] (2.,250.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (2.0609460821431695,266.73753194441497) node {$B_2$};
+\draw [color=qqqqff] (3.,200.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (3.0626157152599074,216.65405028857808) node {$B_3$};
+\draw [color=qqqqff] (4.,150.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (4.057607550822534,166.57056863274124) node {$B_4$};
+\draw [color=qqqqff] (5.,100.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (5.0592771839392725,116.48708697690441) node {$B_5$};
+\draw [color=qqqqff] (0.,350.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (0.05760681590969436,366.90449525608864) node {$B_0$};
+\draw [color=qqqqff] (1.,300.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (1.0592764490264324,316.82101360025183) node {$B_1$};
+\draw [color=qqqqff] (2.,250.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (2.0609460821431695,266.73753194441497) node {$B_2$};
+\draw [color=qqqqff] (3.,200.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (3.0626157152599074,216.65405028857808) node {$B_3$};
+\draw [color=qqqqff] (4.,150.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (4.057607550822534,166.57056863274124) node {$B_4$};
+\draw [color=qqqqff] (5.,100.)-- ++(-3.5pt,-3.5pt) -- ++(7.0pt,7.0pt) ++(-7.0pt,0) -- ++(7.0pt,-7.0pt);
+\draw[color=qqqqff] (5.0592771839392725,116.48708697690441) node {$B_5$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{center}
+On voit que les points représentant la suite $(v_n)$ sont alignés. Cette suite semble donc arithmétique de raison $r=-50$.
+\end{methode}
+
+\subsection{Lien avec la moyenne arithmétique}
+
+\begin{example}[Définition 2:]
+\noinent La moyenne arithmétique de deux réels $a$ et $b$ est égale à $\dfrac{a+b}{2}$
+\end{example}
+
+\begin{propri}[Propriété 4 :]
+\noindent Pour que trois réels $x$, $y$ et $z$ soient les termes consécutifs d'une suite arithmétique, il faut et il suffit que le réel $y$ soit égal à la moyenne arithmétique des réels $x$ et $z$.
+\end{propri}
+
+\begin{methode}[Exemple 6 :]
+\noindent Puisque $\dfrac{1 + 9}{2}$ $=$ $5$, alors $1$, $5$ et $9$ sont les termes consécutifs d'une suite arithmétique.
+\end{methode}
+
+\subsection{Somme de termes consécutifs d'une suite arithmétique}
+
+
+\begin{propri}[Propriété 5 :]
+\noindent La somme $S$ des $n$ termes consécutifs d'une suite arithmétique est égale à : \\
+\begin{center}
+$S$ = $n$ $\times$ $\dfrac{premier~terme~+~dernier~terme}{2}$
+\end{center}
+\end{propri}
+
+\begin{proposition}[Méthode 2 : calculer la somme d'une suite arithmétique]
+\noindent On considère pour tout entier naturel $n$ la suite arithmétique $(u_n)$. \\
+$S$ = $\textcolor{blue}{u_0}$ $+$ $u_1$ $+$ $u_2$ $+$ ... $+$ $\textcolor{red}{u_n}$ $=$ $\sum_{k=0}^{n}u_k$ = $(n+1)$ $\times$ $\dfrac{\textcolor{blue}{u_0}+\textcolor{red}{u_n}}{2}$
+\end{proposition}
+
+\end{propri}
+
+
+\begin{methode}[Exemple 7 :]
+\noindent Soit $(u_n)$ la suite arithmétique de premier terme $u_0$ $=$ $19$ et de raison $r$ $=$ $5$. \\
+1. Calculer $S_{10}$ $=$ $\sum_{k=0}^{10}u_k$. \\
+\newline
+Le premier terme est $u_0$ $=$ $19$. \\
+La somme comporte $11$ termes. \\
+Le dernier terme est $u_{10}$ $=$ $u_0$ $+$ $10$ $\times$ $5$ $=$ $69$. \\
+Donc $S_{10}$ $=$ $11$ $\times$ $\dfrac{u_0 + u_{10}}{2}$ $=$ $11$ $\times$ $\dfrac{19 + 69}{2}$ $=$ $484$
+\end{methode}
+
+
+
+
+
+
+
+\section{Suites géométriques}
+
+\subsection{Définition}
+
+\begin{example}[Définition 3 :]
+Une suite $\suiten$ est dite \textbf{géométrique} si l'on passe d'un terme au suivant en \textbf{multipliant toujours par le même nombre} $q$, appelé ici aussi \textbf{raison} de la suite.
+\noindent Autrement dit, une suite est \textbf{géométrique} si sa formule de récurrence est du type : \[u_{n+1}=u_n \times q \quad \text{ pour tout } n \geq 0.\]
+\end{example}
+
+\begin{methode}[Exemple 8 :]
+La suite des puissances de dix : $1-10-100-1000-10000-\ldots$ est géométrique de raison 10.\\
+\end{methode}
+
+\noindent \textbf{Remarque :} \\
+Une suite pour laquelle on passe d'un terme au suivant en divisant toujours par le même nombre est également géométrique, puisque diviser par un nombre revient à multiplier par son inverse.
+
+
+\begin{proposition}[Méthode 3 :]
+Pour démontrer qu'une suite est géométrique :\\
+\begin{itemize}
+	\item soit on transcrit le texte de l'énoncé sous forme de formule de récurrence ;
+	\item soit on calcule le \textbf{quotient} $\dfrac{u_{n+1}}{u_n}$ entre deux termes consécutifs et on montre que ce quotient est constant et ne dépend pas de $n$.\\
+	
+\noindent Le résultat de ce calcul est alors la \textbf{raison} $q$ de la suite.
+\end{itemize}
+\end{proposition}
+
+\begin{methode}[Exemple 9 :]
+On souhaite démontrer que la suite définie par $u_n=5\times 3^n$ pour tout $n \pg 0$ est géométrique.\\
+\begin{itemize}
+	\item on calcule $u_{n+1}$ : $u_{n+1}=5\times 3^{n+1}=5 \times 3^n \times 3$ ;
+	\item puis le quotient $\frac{u_{n+1}}{u_n}=\frac{5 \times 3^n \times 3}{5\times 3^{n}}=3$.
+\end{itemize}
+Le résultat ne dépend plus de $n$, donc la suite est \textbf{géométrique} de raison $q=3$.
+\end{methode}
+
+\subsection{Formule explicite}
+
+\begin{propri}[Propriété 5 :]
+Soit $\suiten$ une suite \textbf{géométrique} de raison $q$ et de premier terme $u_0$.
+
+Alors on a :\[u_n=u_0\times q^n \quad  \text{ pour tout } n \in \mathbb{N}.\]
+\end{propri}
+
+\noindent \textbf{Remarque :}\\
+Si le premier terme de la suite n'est pas $u_0$ mais $u_1$, on a la propriété : \[u_n=u_1 \times q^{n-1} \quad \text{ pour tout }n \geq 1\]%
+et, pour n'importe quel rang $p$ : \[u_n=u_p \times q^{n-p} \quad \text{ pour tout }n \geq p.\]
+
+\newpage
+
+\begin{methode}[Exemple 10 :]
+Je place en banque une somme de 350 \euro{}. Au 1\ier janvier de chaque année, je perçois sur mon compte des intérêts qui s'élèvent à 3\,\% de la somme placée pendant l'année écoulée.  Quelle somme sera disponible sur mon compte au bout de 5 ans ?
+\begin{itemize}
+	\item Au bout d'un an, il y aura $350+\frac{3}{100}\times 350=350+10,5=360,5$ \euro{}.
+	\item Au bout de deux ans, il y aura $306,5+\frac{3}{100}\times 360,5=360,5+10,815 \approx 371,31 $ \euro{}.
+	\item La suite $(c_n)]$ où $c_n$ est la somme placée à la fin de la $n$-ième année est une suite géométrique de raison $q=1,03$ et de premier terme $c_0=350$.
+	
+	En effet, $c_{n+1}=c_n+\frac{3}{100} \times c_n=c_n+0,03c_n=1,03c_n$. 
+	\item Au bout de 5 ans, il y aura donc sur le compte $c_{5}=c_0 \times q^ 5 = 350 \times 1,03^ 5 \approx 405,75 $ \euro{}.
+\end{itemize}
+\end{methode}
+
+\subsection{Sens de variation}
+
+\begin{propri}[Propriété 6 :]
+\begin{itemize}
+	\item Si $0$ $<$ $q$ $<$ $1$ alors ($u_n$) est strictement décroissante.
+	\item Si $q$ $=$ $1$ alors ($u_n$) est constante.
+	\item Si $q$ $>$ $1$ alors ($u_n$) est strictement croissante
+\end{itemize}
+\end{propri}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage 
+
+\begin{center}
+\Large{QCM : rappel de première}
+\end{center}
+
+\noindent Cocher la bonne réponse : \\
+
+\noindent Question 1 : Les nombres 0; 1; 3; 4 sont dans l'ordre, des termes successifs d'une suite arithmétique.
+\begin{checkboxes}
+		\choice VRAI
+		\choice FAUX
+	\end{checkboxes}\\
+
+\noindent Question 2 : Soit ($u_n$) la suite définie, pour tout entier naturel $n$, par $u_n$ $=$ $2n^2$ $+$ $3$. 
+	\begin{checkboxes}
+		\choice $u_3$ $=$ $21$
+		\choice $u_3$ $=$ $3$
+		\choice $u_3$ $=$ $3u_1$
+		\choice $u_3$ $=$ $9$
+	\end{checkboxes}\\
+\newline
+
+\noindent Question 3 : Soit ($u_n$) la suite arithmétique de premier terme $u_0$ $=$ $5$ et de raison $r$ $=$ $8$. La valeur de $u_1$ est :
+	\begin{checkboxes}
+		\choice -3
+		\choice 3
+		\choice 40
+		\choice 13
+	\end{checkboxes}\\
+\newline
+\noindent Question 4 : Soit ($u_n$) la suite géométrique de premier terme $u_0$ $=$ $5$ et de raison $q$ $=$ $2$. La valeur de $u_1$ est :
+	\begin{checkboxes}
+		\choice $10$
+		\choice $7$
+		\choice $2,5$
+		\choice $25$
+	\end{checkboxes}
+\newline
+\noindent Question 5 : Soit ($u_n$) la suite arithmétique telle que $u_3$ $=$ $7$ et de raison $r$ $=$ $8$. La valeur de $u_2$ est :
+	\begin{checkboxes}
+		\choice $13$
+		\choice $1$
+		\choice $-1$
+		\choice $2$
+	\end{checkboxes}
+\newline
+\noindent Question 6 : Soit ($u_n$) la suite arithmétique telle que $u_3$ $=$ $7$ et de raison $r$ $=$ $8$. La valeur de $u_2$ est :
+	\begin{checkboxes}
+		\choice $13$
+		\choice $1$
+		\choice $-1$
+		\choice $2$
+	\end{checkboxes}
+	\newline
+\noindent Question 7 : Soit ($u_n$) la suite géométrique telle que $u_2$ $=$ $-2$ et de raison $q$ $=$ $3$. La valeur de $u_5$ est : 
+	\begin{checkboxes}
+		\choice $-54$
+		\choice $54$
+		\choice $-18$
+		\choice $7$
+	\end{checkboxes}	
+\newline	
+	
+
+\noindent Question 8 : Soit ($u_n$) la suite arithmétique de premier terme $u_1$ $=$ $10$ et de raison $r$ $=$ $4$. On a :
+	\begin{checkboxes}
+		\choice $u_4$ $=$ $18$
+		\choice $u_4$ $=$ $20$
+	    \choice $u_4$ $=$ $30$
+		\choice $u_4$ $=$ $26$ 
+	\end{checkboxes}	
+\newpage
+\noidnent Question 9 : Soit ($v_n$) la suite définie pour tout entier $n$, par $v_0$ $=$ $5$ et la relation $v_{n+1}$ $=$ $3v_n$.
+	\begin{checkboxes}
+		\choice $v_2$ $=$ $15$
+		\choice $v_2$ $=$ $45$
+	    \choice $v_2$ $=$ $45$
+		\choice $v_10$ $=$ $3v_1$ 
+	\end{checkboxes}	
+
+\newline
+\noindent Question 10 : Soit ($v_n$) une suite arithmétique de premier terme $u_0$ $=$ $-3$ et de raison 2.
+	\begin{checkboxes}
+		\choice $u_4$ $=$ $-1$
+		\choice $u_4$ $=$ $u_0$ $+$ $2$ 
+	    \choice $u_4$ $=$ $3$
+		\choice $u_4$ $=$ $5$ 
+	\end{checkboxes}
+	\newline
+\noindent Question 11 : La suite arithmétique de premier terme $u_0$ $=$ $-1$ et de raison $-2$ est :
+	\begin{checkboxes}
+		\choice croissante
+		\choice décroissante
+	    \choice ni croissante ni décroissante
+		\choice constante
+	\end{checkboxes}
+\newline	
+\noindent Question 12 : La suite géométrique de premier terme $u_0$ $=$ $3$ et de raison $0,25$ est :
+	\begin{checkboxes}
+		\choice croissante
+		\choice décroissante
+	    \choice ni croissante ni décroissante
+		\choice constante
+	\end{checkboxes}
+
+\newline
+\noindent Question 13 : Soit ($v_n$) une suite arithmétique telle que $v_0$ $=$ $2$ et $v_2$ $=$ $8$. La raison vaut :
+	\begin{checkboxes}
+		\choice $2$
+		\choice $6$
+	    \choice $-3$
+		\choice $3$
+	\end{checkboxes}
+\newline
+\noindent Question 14 : Soit ($v_n$) une suite géométrique telle que $v_0$ $=$ $2$ et $v_2$ $=$ $8$. La raison vaut :
+	\begin{checkboxes}
+		\choice $2$
+		\choice $4$
+	    \choice $8$
+		\choice $1$
+	\end{checkboxes}
+
+
+\newpage
+
+\begin{center}
+\Large{Fiche 1 : suite arithmétique}
+\end{center}
+
+\noindent \textit{Vous trouverez au dos de cette feuille une notice pour calculer les termes d'une suite à l'aide de la calculatrice.}\\
+
+\begin{example}[Exercice 1 :]
+\noindent Soit ($u_n$) la suite arithmétique de raison $3$ et de premier terme $u_0$ = $2$.\\
+1. Calculer $u_1$, $u_2$, $u_3$, $u_4$ et $u_6$.\\
+\end{example}
+
+
+\begin{example}[Exercice 2 :]
+Soit $(u_n)$ la suite arithmétique de premier terme $u_0=-3$ et de raison $r=2$.\\
+\begin{enumerate}
+\item Calculer $u_1$, $u_2$ et $u_3$.
+\item Écrire une relation entre $u_{n+1}$ et $u_n$.
+\item À l'aide de la calculatrice :
+
+      \begin{enumerate}
+      \item déterminer le treizième terme ;
+      \item déterminer $u_{24}$.
+      \end{enumerate}
+\end{enumerate}
+\end{example}
+
+
+\begin{example}[Exercice 3 :]
+Au 1\ier{} janvier 2010, Chloé débute dans une entreprise avec un salaire mensuel de $1500$ \euro{}. 
+
+Il est prévu dans son contrat une augmentation mensuelle de 7 \euro{} à partir du deuxième mois. On note $a_0=1 500$ son salaire d'embauche puis pour $n$ supérieur ou égal à 1, $a_n$ son salaire à la fin du $(n+1)$-ième mois.
+\begin{enumerate}
+\item Déterminer le salaire $a_1$ du deuxième mois.
+\item Exprimer $a_{n+1}$ en fonction de $a_n$, et en déduire la nature de la suite $(a_n)$.
+\item À l'aide de la calculatrice :
+      \begin{enumerate}
+      \item déterminer le salaire du 7\ieme{} mois;
+      \item déterminer le rang du premier mois pour lequel son salaire dépassera 2 000 \euro{}.
+      \end{enumerate}
+\end{enumerate}
+\end{example}
+
+\newpage 
+
+\begin{methode}[Calculer les termes d'une suite arithmétique à l'aide de la calculatrice]
+\noindent Soit ($u_n$) une suite arithmétique de premier terme $u_0$ $=$ $17$ et de raison $r$ $=$ $11$. \\
+A l'aide de la calculatrice calculer $u_{10}$. \\
+\newline
+\noindent \underline{Avec la Casio Graph 35+E :}\\
+\newline
+
+\noindent Dans le menu \textb{RECUR}, appuyer sur la touche \textb{F4} puis \textb{F2}. On entre $a_{n+1}$ $=$ $a_n$ $+$ $11$ puis on presse sur \textbf{EXE}. Modifier les valeurs Start et End pour indiquer les valeurs minimale et maximale dans le tableau, et celle de $a_0$ pour indiquer le premier terme de la suite. Ensuite, presser la touche \textb{F6} (TABL) pour afficher le tableau de valeur. 
+\begin{center}
+\includegraphics[scale=0.6]{fig1.jpg}
+\end{center}
+
+\noindent \underline{Avec la Ti 83 Premium :}\\
+\newline
+\noindent Appuyer sur la touche \textbf{mode} et sur la troisième ligne, sélectionner SUITE (ou SEQ selon les modèles). Ensuite, presser la touche $f(x)$ (ou $Y=$ selon la version de la calculatrice). Modifier les valeurs de $nMin$ pour déterminer le rang du premier terme (en général $0$), de $u(n)$ pour déterminer l'expression de $u(n)$ en fonction de $u(n - 1)$, en utilisant les touches \textbf{2nde} et \textbf{7} pour taper $u$) et la touche \textbf{X,T,$\theta$} , pour $n$, et de $u(nMin)$ pour indiquer la valeur du premier terme. Ensuite,presser les touches \textbf{2nde} et \textbf{graphe(table)} pour afficher le tableau de valeurs. Presser les touches \textbf{2nde} puis \textbf{fenêtre} (déf table). Modifier les valeurs $DebutTbl$ et $Tbl$ pour indiquer la valeur minimale de $n$ dans le tableau, et celle du pas. Ensuite, presser les touches \textbf{2nde} et \textbf{graphe} (table) pour afficher le tableau de valeurs. \\
+\begin{center}
+\includegraphics[scale=0.6]{fig2.jpg}
+\end{center}
+
+\end{methode}
+
+\newpage 
+
+
+\begin{center}
+\Large{Fiche 2 : suite arithmétique et représentation graphique}
+\end{center}
+
+\begin{example}[Exercice 1 :]
+\noindent On a représenter ci-dessous la suite $(u_n)$. \\
+\begin{center}
+\begin{tikzpicture}[baseline,scale = 0.6]
+
+    \tikzset{
+      point/.style={
+        thick,
+        draw,
+        cross out,
+        inner sep=0pt,
+        minimum width=5pt,
+        minimum height=5pt,
+      },
+    }
+    \clip (-7.5,-7.5) rectangle (9.5,7.5);
+
+
+    	
+	\draw[line width = 2,->] (-9,0)--(9,0);
+	\draw[line width = 2,->] (0,-7)--(0,7);
+	\draw[line width = 2,red] (0.8,4)--(1.2,4);
+	\draw[line width = 2,red] (1,3.8)--(1,4.2);
+	\draw[line width = 2,red] (1.8,2)--(2.2,2);
+	\draw[line width = 2,red] (2,1.8)--(2,2.2);
+	\draw[line width = 2,red] (2.8,0)--(3.2,0);
+	\draw[line width = 2,red] (3,-0.2)--(3,0.2);
+	\draw[line width = 2,red] (3.8,-2)--(4.2,-2);
+	\draw[line width = 2,red] (4,-2.2)--(4,-1.8);
+	\draw[line width = 2,red] (4.8,-4)--(5.2,-4);
+	\draw[line width = 2,red] (5,-4.2)--(5,-3.8);
+	\draw[line width = 2] (-8,-0.2)--(-8,0.2);
+	\draw[line width = 2] (-7,-0.2)--(-7,0.2);
+	\draw[line width = 2] (-6,-0.2)--(-6,0.2);
+	\draw[line width = 2] (-5,-0.2)--(-5,0.2);
+	\draw[line width = 2] (-4,-0.2)--(-4,0.2);
+	\draw[line width = 2] (-3,-0.2)--(-3,0.2);
+	\draw[line width = 2] (-2,-0.2)--(-2,0.2);
+	\draw[line width = 2] (-1,-0.2)--(-1,0.2);
+	\draw[line width = 2] (1,-0.2)--(1,0.2);
+	\draw[line width = 2] (2,-0.2)--(2,0.2);
+	\draw[line width = 2] (3,-0.2)--(3,0.2);
+	\draw[line width = 2] (4,-0.2)--(4,0.2);
+	\draw[line width = 2] (5,-0.2)--(5,0.2);
+	\draw[line width = 2] (6,-0.2)--(6,0.2);
+	\draw[line width = 2] (7,-0.2)--(7,0.2);
+	\draw[line width = 2] (8,-0.2)--(8,0.2);
+	\draw[line width = 2] (-0.2,-6)--(0.2,-6);
+	\draw[line width = 2] (-0.2,-5)--(0.2,-5);
+	\draw[line width = 2] (-0.2,-4)--(0.2,-4);
+	\draw[line width = 2] (-0.2,-3)--(0.2,-3);
+	\draw[line width = 2] (-0.2,-2)--(0.2,-2);
+	\draw[line width = 2] (-0.2,-1)--(0.2,-1);
+	\draw[line width = 2] (-0.2,1)--(0.2,1);
+	\draw[line width = 2] (-0.2,2)--(0.2,2);
+	\draw[line width = 2] (-0.2,3)--(0.2,3);
+	\draw[line width = 2] (-0.2,4)--(0.2,4);
+	\draw[line width = 2] (-0.2,5)--(0.2,5);
+	\draw[line width = 2] (-0.2,6)--(0.2,6);
+	
+	\draw [black] (-6,-0.5) node[anchor = center,scale=1] {-6};
+	\draw [black] (-5,-0.5) node[anchor = center,scale=1] {-5};
+	\draw [black] (-4,-0.5) node[anchor = center,scale=1] {-4};
+	\draw [black] (-3,-0.5) node[anchor = center,scale=1] {-3};
+	\draw [black] (-2,-0.5) node[anchor = center,scale=1] {-2};
+	\draw [black] (-1,-0.5) node[anchor = center,scale=1] {-1};
+	\draw [black] (1,-0.5) node[anchor = center,scale=1] {1};
+	\draw [black] (2,-0.5) node[anchor = center,scale=1] {2};
+	\draw [black] (3,-0.5) node[anchor = center,scale=1] {3};
+	\draw [black] (4,-0.5) node[anchor = center,scale=1] {4};
+	\draw [black] (5,-0.5) node[anchor = center,scale=1] {5};
+	\draw [black] (6,-0.5) node[anchor = center,scale=1] {6};
+	\draw [black] (7,-0.5) node[anchor = center,scale=1] {7};
+	\draw [black] (8,-0.5) node[anchor = center,scale=1] {8};
+	\draw [black] (-0.5,-6) node[anchor = center,scale=1] {-6};
+	\draw [black] (-0.5,-5) node[anchor = center,scale=1] {-5};
+	\draw [black] (-0.5,-4) node[anchor = center,scale=1] {-4};
+	\draw [black] (-0.5,-3) node[anchor = center,scale=1] {-3};
+	\draw [black] (-0.5,-2) node[anchor = center,scale=1] {-2};
+	\draw [black] (-0.5,-1) node[anchor = center,scale=1] {-1};
+	\draw [black] (-0.5,1) node[anchor = center,scale=1] {1};
+	\draw [black] (-0.5,2) node[anchor = center,scale=1] {2};
+	\draw [black] (-0.5,3) node[anchor = center,scale=1] {3};
+	\draw [black] (-0.5,4) node[anchor = center,scale=1] {4};
+	\draw [black] (-0.5,5) node[anchor = center,scale=1] {5};
+	\draw [black] (-0.5,6) node[anchor = center,scale=1] {6};
+	\draw[opacity = 0.5] (-7,-6)--(9,-6);
+	\draw[opacity = 0.5] (-7,-5)--(9,-5);
+	\draw[opacity = 0.5] (-7,-4)--(9,-4);
+	\draw[opacity = 0.5] (-7,-3)--(9,-3);
+	\draw[opacity = 0.5] (-7,-2)--(9,-2);
+	\draw[opacity = 0.5] (-7,-1)--(9,-1);
+	\draw[opacity = 0.5] (-7,1)--(9,1);
+	\draw[opacity = 0.5] (-7,2)--(9,2);
+	\draw[opacity = 0.5] (-7,3)--(9,3);
+	\draw[opacity = 0.5] (-7,4)--(9,4);
+	\draw[opacity = 0.5] (-7,5)--(9,5);
+	\draw[opacity = 0.5] (-7,6)--(9,6);
+	\draw[opacity = 0.5] (-6,-7)--(-6,7);
+	\draw[opacity = 0.5] (-5,-7)--(-5,7);
+	\draw[opacity = 0.5] (-4,-7)--(-4,7);
+	\draw[opacity = 0.5] (-3,-7)--(-3,7);
+	\draw[opacity = 0.5] (-2,-7)--(-2,7);
+	\draw[opacity = 0.5] (-1,-7)--(-1,7);
+	\draw[opacity = 0.5] (1,-7)--(1,7);
+	\draw[opacity = 0.5] (2,-7)--(2,7);
+	\draw[opacity = 0.5] (3,-7)--(3,7);
+	\draw[opacity = 0.5] (4,-7)--(4,7);
+	\draw[opacity = 0.5] (5,-7)--(5,7);
+	\draw[opacity = 0.5] (6,-7)--(6,7);
+	\draw[opacity = 0.5] (7,-7)--(7,7);
+	\draw[opacity = 0.5] (8,-7)--(8,7);
+	
+	\draw[line width = 2] ;
+	\draw[line width = 2] ;
+	\draw[line width = 2] ;
+	\draw[line width = 2] ;
+	\draw[line width = 2] 
+
+\end{tikzpicture}\\
+\end{center}
+
+
+\noindent 1. Montrer que cette suite est arithmétique. \\
+2. Déterminer sa raison $r$ et $u_1$. \\
+3. Donner l'expression de $u_n$ en fonction de $n$. 
+\end{example}
+
+\begin{example}[Exercice 2 :]
+\noindent On a représenté les premiers termes d'une suite ($u_n$) :\\
+\begin{center}
+\includegraphics[scale=0.8]{fig4.jpg}
+\end{center}
+\noindent 1. Déterminer $u_0$, $u_1$ et $u_2$.\\
+2. Cette suite peut-elle être arithmétique ?
+\end{example}
+
+\newpage 
+
+
+
+\begin{center}
+\Large{Somme des termes d'une suite arithmétique}
+\end{center}
+
+\begin{center}
+$S$ $=$ nombre de termes $\times$ $\left(\dfrac{1er~terme~de~la~somme~+~dernier~terme~de~la~somme}{2}\right)$}
+\end{center}
+
+\begin{example}[Exercice 1 :]
+
+Soit $(u_n)$ une suite arithmétique de raison $3$ et de premier terme $u_0=-4$. Calculer la $S_{10}$ somme des $10$ premiers termes de la suite $(u_n)$.\\
+1. Que vaut $u_0$ ? \\
+2. Calculer $u_9$ ? \\
+3. Déterminer $S_{10}$. \\
+\end{example}
+
+
+
+
+\begin{example}[Exercice 2 :]
+
+Soit $(u_n)$ une suite arithmétique de raison $2$ et de premier terme $u_0=-1$. Calculer la $S_{20}$ somme des $20$ premiers termes de la suite $(u_n)$.
+\end{example}
+
+\begin{example}[Exercice 3 :]
+Soit $(u_n)$ une suite arithmétique de raison $-3$ et de premier terme $u_1=4$. Calculer la somme des $30$ premiers termes de la suite $(u_n)$.
+\end{example}
+
+\begin{example}[Exercice 4 :]
+\noindent Kenza s'intéresse au tarif d'une mutuelle. Le prix initial proposé est de $300$ \euro par an en $2023$. L'assureur  prévoit une augmentation de $10$ \euro par an. On note $u_n$ le prix annuel de la mutuelle de l'assureur $A$ en $2023+n$.
+\begin{enumerate}
+\item Déterminer la valeur de $u_0$ et de $u_1$.\\
+\item Exprimer $u_{n+1}$ en fonction de $u_n$. Quelle est la nature de la suite $(u_n)$ ?\\
+\item En déduire l'expression de $u_n$ en fonction de $n$.\\
+\item Quel sera le prix de la mutuelle de l'assureur en $2033$ ?\\
+\item Combien Kenza aura-t-elle payé au total en $25$ ans si elle choisit cette assureur. \\
+\end{enumerate}
+\end{example}
+
+\newpage 
+\begin{center}
+\Large{Pixel-Art}
+\end{center}
+
+\noindent Répondre en justifiant aux 16 questions ci-dessous. Chaque résultat vous permettra de colorier une partie de votre grille.\\
+
+\begin{tabular}{|l|l|}
+\hline
+1 & Pour tout entier naturel $n$, $u_n$ = 2$n^2$ + $4$. Déterminer $u_3$. \\
+  &    \\
+\hline
+2 & Soit ($u_n$) une suite arithmétique de premier terme $u_0$ = $3,7$ et de raison $-0,7$. \\
+  & Déterminer $u_{10}$. \\
+\hline
+3 & Soit ($u_n$) une suite arithmétique de premier terme $u_1$ = $-4$ et de raison $2$. \\
+  & Déterminer $u_{10}$\\
+\hline
+4 & Soit ($u_n$) une suite arithmétique de raison $r$ = $-6$ et telle que $u_3$ = 25.\\
+  & Calculer $u_2$.  \\
+\hline
+5 & Soit ($u_n$) est la suite arithmétique de premier terme $u_0$ = 6 et de raison $r$ = 3. \\
+  & Calculer $S$ = $u_0$ + $u_1$ + ... + $u_9$ \\
+\hline
+6 & Les points de la représentation graphique d'une suite arithmétique sont ...... \\
+  &   \\
+\hline
+7 & $u_1$ = $10$ ; $u_2$ = $5$ ; $u_3$ = $2,5$\\
+  & La suite est-elle arithmétique ? \\
+\hline
+8 & Soit ($v_n$) est la suite arithmétique de premier terme $v_1$ = $-2$ et de raison $r$ = $-3$. \\
+  & Calculer $v_{12}$. \\
+\hline
+9 & Soit $(u_n$) la suite arithmétique tel que $u_0$ = $3$ et $u_7$ = $17$ \\
+  & Calculer la raison de cette suite. \\
+\hline
+10 & Soit ($u_n$) une suite arithmétique de raison $2$. \\
+   & Exprimer $u_{n+1}$ en fonction de $u_n$. \\
+\hline
+11 & Soit $(u_n$) la suite arithmétique tel que $u_0$ = $3$ et $r$ = $-3$\\
+   & Sens de variation de ($u_n$) : ....\\
+\hline
+12 & $u_1$ = $15$ ; $u_2$ = $10$ ; $u_3$ = $5$\\
+   & Quelle est la raison de cette suite ? \\
+\hline
+13 & Soit ($u_n$) est la suite arithmétique de premier terme $u_1$ = $1$0 et de raison $r$ = $2$. \\
+  & Calculer $S_{10}$.\\
+\hline
+14 & Soit ($u_n$) est la suite arithmétique de premier terme $u_1$ = $10$ et de raison $r$ = $-2$. \\
+   & Calculer $S_9$.\\
+\hline
+15 & Soit ($u_n$) une suite arithmétique de raison $r$ = $6$ et telle que $u_3$ = 25.\\
+  &  Calculer $u_{12}$.  \\
+\hline
+16 & $u_n$ = $n$ + $1$. \\
+   & Calculer $u_{n+1}$ - $u_{n}$ \\
+\hline
+\end{tabular}\\
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.9]{fig6.jpg}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=1]{fig7.jpg}
+\end{figure}
+
+
+
+\end{document}
